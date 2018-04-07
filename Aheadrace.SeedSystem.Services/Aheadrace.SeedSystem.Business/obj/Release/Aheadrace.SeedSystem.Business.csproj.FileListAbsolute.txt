@@ -1,0 +1,15 @@
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Business.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Business.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Business.Contracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.DataContracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Framework.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Repository.Contracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Repository.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Business.Contracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.DataContracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Framework.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Repository.Contracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\bin\Release\Aheadrace.SeedSystem.Repository.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\obj\Release\Aheadrace.SeedSystem.Business.csprojResolveAssemblyReference.cache
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\obj\Release\Aheadrace.SeedSystem.Business.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business\obj\Release\Aheadrace.SeedSystem.Business.pdb

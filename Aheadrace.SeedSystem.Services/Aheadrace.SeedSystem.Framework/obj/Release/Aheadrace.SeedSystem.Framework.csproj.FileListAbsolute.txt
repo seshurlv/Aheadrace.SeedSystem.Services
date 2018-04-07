@@ -1,0 +1,6 @@
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\bin\Release\Aheadrace.SeedSystem.Framework.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\bin\Release\Aheadrace.SeedSystem.Framework.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\bin\Release\NHibernate.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\obj\Release\Aheadrace.SeedSystem.Framework.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\obj\Release\Aheadrace.SeedSystem.Framework.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Framework\obj\Release\Aheadrace.SeedSystem.Framework.csprojResolveAssemblyReference.cache

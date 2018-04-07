@@ -1,0 +1,7 @@
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\bin\Debug\Aheadrace.SeedSystem.Business.Contracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\bin\Debug\Aheadrace.SeedSystem.Business.Contracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\obj\Debug\Aheadrace.SeedSystem.Business.Contracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\obj\Debug\Aheadrace.SeedSystem.Business.Contracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\bin\Debug\Aheadrace.SeedSystem.DataContracts.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\bin\Debug\Aheadrace.SeedSystem.DataContracts.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Business.Contracts\obj\Debug\Aheadrace.SeedSystem.Business.Contracts.csprojResolveAssemblyReference.cache
