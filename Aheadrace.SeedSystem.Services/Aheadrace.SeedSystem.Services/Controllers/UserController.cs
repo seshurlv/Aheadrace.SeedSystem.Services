@@ -62,5 +62,13 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             IUserFacade userFacade = new UserFacade();
             return userFacade.CreateUser(user);
         }
+
+        [HttpGet]
+        [ServiceAuthorizeAttribute]
+        public List<User> GetGrowersWithOpenRegistrations()
+        {
+            IUserFacade userFacade = new UserFacade();
+            return userFacade.GetGrowersWithOpenRegistrations();
+        }
     }
 }

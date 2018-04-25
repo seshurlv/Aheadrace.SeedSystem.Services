@@ -1,4 +1,5 @@
-﻿using Aheadrace.SeedSystem.DataContracts.Products;
+﻿using Aheadrace.SeedSystem.DataContracts.Common;
+using Aheadrace.SeedSystem.DataContracts.Products;
 using Aheadrace.SeedSystem.Framework.Data;
 using Aheadrace.SeedSystem.Repository.Contracts.Admin;
 using System;
@@ -90,6 +91,11 @@ namespace Aheadrace.SeedSystem.Repository.Admin
             cmdParams.Add("@DefectiveCobs", inspectorObservation.DefectiveCobs);
             cmdParams.Add("@RemarksByInspector", inspectorObservation.RemarksByInspector);            
             cmdParams.Add("@RecommendationForGrower", inspectorObservation.RecommendationForGrower);
+            cmdParams.Add("@DateOfSowing", inspectorObservation.DateOfSowing);
+            cmdParams.Add("@CropStage", inspectorObservation.CropStage);
+            cmdParams.Add("@IsIsolationDistanceMaintained", inspectorObservation.IsIsolationDistanceMaintained);
+            cmdParams.Add("@GrowthCondition", inspectorObservation.GrowthCondition);
+            cmdParams.Add("@RecommendationForCertification", inspectorObservation.RecommendationForCertification);
             cmdParams.Add("@Status", inspectorObservation.Status);
 
             DataSet ds = dbRepo.ExecuteProcedure("SaveInspectorObservation", 0, tableNames, cmdParams);
@@ -128,6 +134,11 @@ namespace Aheadrace.SeedSystem.Repository.Admin
                         RemarksByInspector = Convert.ToString(ds.Tables[0].Rows[i]["RemarksByInspector"]),
                         RecommendationForGrower = Convert.ToString(ds.Tables[0].Rows[i]["RecommendationForGrower"]),
                         Status = Convert.ToString(ds.Tables[0].Rows[i]["Status"]),
+                        DateOfSowing = Convert.ToDateTime(ds.Tables[0].Rows[i]["DateOfSowing"]),
+                        CropStage = Convert.ToString(ds.Tables[0].Rows[i]["CropStage"]),
+                        IsIsolationDistanceMaintained = Convert.ToBoolean(ds.Tables[0].Rows[i]["IsIsolationDistanceMaintained"]),
+                        GrowthCondition = Convert.ToString(ds.Tables[0].Rows[i]["GrowthCondition"]),
+                        RecommendationForCertification = Convert.ToBoolean(ds.Tables[0].Rows[i]["RecommendationForCertification"]),
                         InspectionRegistration = new InspectionRegistration()
                         {
                             GrowerName = Convert.ToString(ds.Tables[0].Rows[i]["GrowerName"]),
@@ -144,12 +155,18 @@ namespace Aheadrace.SeedSystem.Repository.Admin
                             {
                                 ClassName = Convert.ToString(ds.Tables[0].Rows[i]["ClassName"])
                             }
-                        }
+                        },
+                        CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                        CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                        UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                        UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
                     };
                     inspObsList.Add(inspObs);
                 }
             }
             return inspObsList;
         }
+
+        
     }
 }

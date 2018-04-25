@@ -1,18 +1,65 @@
-﻿using System;
+﻿using Aheadrace.SeedSystem.DataContracts.Home;
+using Aheadrace.SeedSystem.Facade.Contracts.Home;
+using Aheadrace.SeedSystem.Facade.Home;
+using Aheadrace.SeedSystem.Services.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-
+using System.Web.Http;
+    
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    public class HomeController : Controller
+    [ServiceAuthorizeAttribute]
+    public class HomeController : ApiController
     {
-        public ActionResult Index()
+        [HttpGet]
+        public List<RegistrationStats> GetRegistrationStats(int year)
         {
-            ViewBag.Title = "Home Page";
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetRegistrationStats(year);
+        }
 
-            return View();
+        [HttpGet]
+        public List<CropsRegistered> GetRegistrationPerCrop(int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetRegistrationPerCrop(year);
+        }
+
+        [HttpGet]
+        public List<CropsRegistered> GetAreaPerCrop(int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetAreaPerCrop(year);
+        }
+
+        [HttpGet]
+        public List<RegistrationStats> GetUserRegistrationsPerMonth(int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetUserRegistrationsPerMonth(year);
+        }
+
+        [HttpGet]
+        public List<RegistrationStats> GetUserPerDistrict(int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetUserPerDistrict(year);
+        }
+
+        [HttpGet]
+        public List<RegistrationStats> GetInspectedGrowersPerMonth(int userId, int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetInspectedGrowersPerMonth(userId, year);
+        }
+
+        [HttpGet]
+        public List<RegistrationStats> GetInspectorStats(int userId, int year)
+        {
+            IHomeFacade homeFacade = new HomeFacade();
+            return homeFacade.GetInspectorStats(userId, year);
         }
     }
 }

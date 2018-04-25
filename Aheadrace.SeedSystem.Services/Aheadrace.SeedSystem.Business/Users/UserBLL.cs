@@ -46,5 +46,11 @@ namespace Aheadrace.SeedSystem.Business.Users
             IUserRepository userRepo = new UsersRepository();
             return userRepo.CreateUser(user);
         }
+
+        public List<User> GetGrowersWithOpenRegistrations()
+        {
+            IUserRepository userRepo = new UsersRepository();
+            return userRepo.GetGrowersWithOpenRegistrations();
+        }
     }
 }

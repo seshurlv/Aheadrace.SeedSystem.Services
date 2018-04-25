@@ -1,5 +1,6 @@
 ﻿using Aheadrace.SeedSystem.Business.Admin;
 using Aheadrace.SeedSystem.Business.Contracts.Admin;
+using Aheadrace.SeedSystem.DataContracts.Common;
 using Aheadrace.SeedSystem.DataContracts.Products;
 using Aheadrace.SeedSystem.Facade.Contracts.Admin;
 using System;
@@ -42,5 +43,7 @@ namespace Aheadrace.SeedSystem.Facade.Admin
             IAdminBLL adminBll = new AdminBLL();
             return adminBll.GetObservationsByUser(mode, userId);
         }
+
+        
     }
 }

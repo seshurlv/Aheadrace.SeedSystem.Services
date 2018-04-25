@@ -1,4 +1,5 @@
-﻿using Aheadrace.SeedSystem.DataContracts.Products;
+﻿using Aheadrace.SeedSystem.DataContracts.Common;
+using Aheadrace.SeedSystem.DataContracts.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,7 @@ namespace Aheadrace.SeedSystem.Business.Contracts.Admin
         int SaveInspectorObservation(InspectorObservation inspectorObservation);
 
         List<InspectorObservation> GetObservationsByUser(int mode, int userId);
+
+        
     }
 }

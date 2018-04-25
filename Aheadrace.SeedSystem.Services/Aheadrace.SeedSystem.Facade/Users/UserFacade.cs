@@ -46,5 +46,11 @@ namespace Aheadrace.SeedSystem.Facade.Users
             IUserBLL userBLL = new UserBLL();
             return userBLL.CreateUser(user);
         }
+
+        public List<User> GetGrowersWithOpenRegistrations()
+        {
+            IUserBLL userBLL = new UserBLL();
+            return userBLL.GetGrowersWithOpenRegistrations();
+        }
     }
 }

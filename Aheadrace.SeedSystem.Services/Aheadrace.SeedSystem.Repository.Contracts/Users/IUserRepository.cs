@@ -19,6 +19,8 @@ namespace Aheadrace.SeedSystem.Repository.Contracts.Users
 
         List<User> GetUsersByRole(int id);
 
-        List<Role> GetRoles();        
+        List<Role> GetRoles();
+
+        List<User> GetGrowersWithOpenRegistrations();
     }
 }

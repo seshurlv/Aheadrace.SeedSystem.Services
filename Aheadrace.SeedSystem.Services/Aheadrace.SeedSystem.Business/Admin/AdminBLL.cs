@@ -1,4 +1,5 @@
 ﻿using Aheadrace.SeedSystem.Business.Contracts.Admin;
+using Aheadrace.SeedSystem.DataContracts.Common;
 using Aheadrace.SeedSystem.DataContracts.Products;
 using Aheadrace.SeedSystem.Repository.Admin;
 using Aheadrace.SeedSystem.Repository.Contracts.Admin;
@@ -47,7 +48,11 @@ namespace Aheadrace.SeedSystem.Business.Admin
                             {
                                 ClassName = Convert.ToString(ds.Tables[0].Rows[i]["SeedClass"])
                             },
-                            Status = Convert.ToString(ds.Tables[0].Rows[i]["status"])
+                            Status = Convert.ToString(ds.Tables[0].Rows[i]["status"]),
+                            CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                            CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                            UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                            UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
                         };
                         regList.Add(ir);
                     }
@@ -104,7 +109,11 @@ namespace Aheadrace.SeedSystem.Business.Admin
                                         CountryName = Convert.ToString(ds.Tables[0].Rows[i]["CountryName"])
                                     }
                                 }
-                            }
+                            },
+                            CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                            CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                            UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                            UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
                         };
                         regList.Add(ir);
                     }
@@ -129,7 +138,11 @@ namespace Aheadrace.SeedSystem.Business.Admin
                             {
                                 ClassName = Convert.ToString(ds.Tables[0].Rows[i]["SeedClass"])
                             },
-                            Status = Convert.ToString(ds.Tables[0].Rows[i]["status"])
+                            Status = Convert.ToString(ds.Tables[0].Rows[i]["status"]),
+                            CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                            CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                            UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                            UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
                         };
                         regList.Add(ir);
                     }
@@ -159,5 +172,7 @@ namespace Aheadrace.SeedSystem.Business.Admin
             IAdminRepository adminRepo = new AdminRepository();
             return adminRepo.GetObservationsByUser(mode, userId);
         }
+
+        
     }
 }

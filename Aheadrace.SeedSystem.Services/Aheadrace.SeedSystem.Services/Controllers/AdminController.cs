@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Caching;
+using Aheadrace.SeedSystem.DataContracts.Common;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
@@ -50,5 +51,7 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             IAdminFacade adminFacade = new AdminFacade();
             return adminFacade.GetObservationsByUser(mode, userId);
         }
+
+        
     }
 }

@@ -21,6 +21,12 @@ namespace Aheadrace.SeedSystem.DataContracts.Products
         public string RemarksByInspector { get; set; }
         public string RecommendationForGrower { get; set; }
         public string Status { get; set; }
+        public DateTime DateOfSowing { get; set; }
+        public string CropStage { get; set; }
+        public bool IsIsolationDistanceMaintained { get; set; }
+        public string GrowthCondition { get; set; }
+        public bool RecommendationForCertification { get; set; }
+
         public InspectionRegistration InspectionRegistration { get; set; }
     }
 }

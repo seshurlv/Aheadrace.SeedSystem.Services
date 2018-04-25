@@ -43,6 +43,7 @@
     <Compile Include="Admin\IAdminFacade.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Common\Location\ILocationFacade.cs" />
+    <Compile Include="Home\IHomeFacade.cs" />
     <Compile Include="Login\ILoginFacade.cs" />
     <Compile Include="Products\IProductsFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

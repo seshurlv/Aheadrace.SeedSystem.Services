@@ -20,5 +20,7 @@ namespace Aheadrace.SeedSystem.Facade.Contracts.Users
         List<Role> GetRoles();
 
         int CreateUser(User user);
+
+        List<User> GetGrowersWithOpenRegistrations();
     }
 }
