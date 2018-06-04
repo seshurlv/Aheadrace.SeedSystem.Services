@@ -63,12 +63,14 @@ namespace Aheadrace.SeedSystem.Repository.Home
             return regStatsList;
         }
 
-        public List<CropsRegistered> GetAreaPerCrop(int year)
+        public List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role)
         {
             List<CropsRegistered> regStatsList = new List<CropsRegistered>();
             string[] tableNames = new string[2];
             Dictionary<string, object> cmdParams = new Dictionary<string, object>();
             cmdParams.Add("@year", year);
+            cmdParams.Add("@userId", userId);
+            cmdParams.Add("@role", role);
             DataSet ds = dbRepo.ExecuteProcedure("GetAreaPerCrop", 0, tableNames, cmdParams);
             if (ds.Tables.Count > 0)
             {
@@ -152,13 +154,14 @@ namespace Aheadrace.SeedSystem.Repository.Home
             return regStatsList;
         }
 
-        public List<RegistrationStats> GetInspectorStats(int userId, int year)
+        public List<RegistrationStats> GetInspectorStats(int userId, int year, int mode)
         {
             List<RegistrationStats> regStatsList = new List<RegistrationStats>();
             string[] tableNames = new string[2];
             Dictionary<string, object> cmdParams = new Dictionary<string, object>();
-            cmdParams.Add("@inspectorId", userId);
+            cmdParams.Add("@userId", userId);
             cmdParams.Add("@year", year);
+            cmdParams.Add("@role", mode);
             DataSet ds = dbRepo.ExecuteProcedure("GetInspectorStats", 0, tableNames, cmdParams);
             if (ds.Tables.Count > 0)
             {

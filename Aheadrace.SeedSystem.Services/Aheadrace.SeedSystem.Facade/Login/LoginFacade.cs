@@ -13,7 +13,7 @@ namespace Aheadrace.SeedSystem.Facade.Login
 {
     public class LoginFacade : ILoginFacade
     {
-        public string VerifyLoginCredentials(string username, string password)
+        public bool VerifyLoginCredentials(string username, string password)
         {
             ILoginBLL logBll = new LoginBLL();
             return logBll.ValidateLoginAndPrepareToken(username, password);

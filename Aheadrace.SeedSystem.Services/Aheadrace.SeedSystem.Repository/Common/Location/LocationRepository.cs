@@ -32,12 +32,30 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                     {
                         CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
                         CountryCode = Convert.ToString(ds.Tables[0].Rows[i]["CountryCode"]),
-                        CountryName = Convert.ToString(ds.Tables[0].Rows[i]["Name"])
+                        CountryName = Convert.ToString(ds.Tables[0].Rows[i]["Name"]),
+                        CountryPhoneCode = Convert.ToString(ds.Tables[0].Rows[i]["PhoneCode"])
                     };
                     countriesList.Add(country);
                 }
             }
             return countriesList;
+        }
+
+        public int CreateUpdateCountry(Country country)
+        {
+            int rValue = 0;
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@CountryID", country.CountryID);
+            cmdParams.Add("@CountryCode", country.CountryCode);
+            cmdParams.Add("@CountryName", country.CountryName);
+            cmdParams.Add("@CountryPhoneCode", country.CountryPhoneCode);
+            DataSet ds = dbRepo.ExecuteProcedure("CreateUpdateCountry", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                rValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+            }
+            return rValue;
         }
 
         public List<State> GetStates()
@@ -56,13 +74,69 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                         StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"]),
                         Country = new Country()
                         {
+                            CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
                             CountryName = Convert.ToString(ds.Tables[0].Rows[i]["CountryName"])
+                        },
+                        Region = new Region()
+                        {
+                            RegionID = Convert.ToInt32(ds.Tables[0].Rows[i]["RegionID"]),
+                            RegionName = Convert.ToString(ds.Tables[0].Rows[i]["RegionName"])
                         }
                     };
                     statesList.Add(state);
                 }
             }
             return statesList;
+        }
+
+        public List<State> GetStatesByCountryId(int countryId)
+        {
+            List<State> statesList = new List<State>();
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@CountryId", countryId);
+
+            DataSet ds = dbRepo.ExecuteProcedure("GetStatesByCountryId", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    State state = new State()
+                    {
+                        StateID = Convert.ToInt32(ds.Tables[0].Rows[i]["StateID"]),
+                        StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"]),
+                        Country = new Country()
+                        {
+                            CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
+                            CountryName = Convert.ToString(ds.Tables[0].Rows[i]["CountryName"])
+                        },
+                        Region = new Region()
+                        {
+                            RegionID = Convert.ToInt32(ds.Tables[0].Rows[i]["RegionID"]),
+                            RegionName = Convert.ToString(ds.Tables[0].Rows[i]["RegionName"])
+                        }
+                    };
+                    statesList.Add(state);
+                }
+            }
+            return statesList;
+        }
+
+        public int CreateUpdateState(State state)
+        {
+            int rValue = 0;
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@StateID", state.StateID);
+            cmdParams.Add("@StateName", state.StateName);
+            cmdParams.Add("@CountryID", state.Country.CountryID);
+            cmdParams.Add("@RegionID", state.Region.RegionID);
+            DataSet ds = dbRepo.ExecuteProcedure("CreateUpdateState", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                rValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+            }
+            return rValue;
         }
 
         public List<District> GetDistricts()
@@ -92,6 +166,23 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                 }
             }
             return districtList;
+        }
+
+        public int CreateUpdateDistrict(District district)
+        {
+            int rValue = 0;
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@DistrictID", district.DistrictID);
+            cmdParams.Add("@DistrictName", district.DistrictName);
+            cmdParams.Add("@Description", district.DistrictDescription);
+            cmdParams.Add("@StateID", district.State.StateID);
+            DataSet ds = dbRepo.ExecuteProcedure("CreateUpdateDistrict", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                rValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+            }
+            return rValue;
         }
 
         public List<EPA> GetEPAs()

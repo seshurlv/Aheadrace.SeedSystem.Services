@@ -24,10 +24,10 @@ namespace Aheadrace.SeedSystem.Facade.Home
             return homeBll.GetRegistrationPerCrop(year);
         }
 
-        public List<CropsRegistered> GetAreaPerCrop(int year)
+        public List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role)
         {
             IHomeBLL homeBll = new HomeBLL();
-            return homeBll.GetAreaPerCrop(year);
+            return homeBll.GetAreaPerCrop(year, userId, role);
         }
 
         public List<RegistrationStats> GetUserRegistrationsPerMonth(int year)
@@ -48,10 +48,10 @@ namespace Aheadrace.SeedSystem.Facade.Home
             return homeBll.GetInspectedGrowersPerMonth(userId, year);
         }
 
-        public List<RegistrationStats> GetInspectorStats(int userId, int year)
+        public List<RegistrationStats> GetInspectorStats(int userId, int year, int role)
         {
             IHomeBLL homeBll = new HomeBLL();
-            return homeBll.GetInspectorStats(userId, year);
+            return homeBll.GetInspectorStats(userId, year, role);
         }
     }
 }

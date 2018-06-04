@@ -18,16 +18,41 @@ namespace Aheadrace.SeedSystem.Business.Common.Location
             return irepo.GetCountries();
         }
 
+        public int CreateUpdateCountry(Country country)
+        {
+            ILocationRepository irepo = new LocationRepository();
+            return irepo.CreateUpdateCountry(country);
+        }
+
         public List<State> GetStates()
         {
             ILocationRepository irepo = new LocationRepository();
             return irepo.GetStates();
         }
 
+        public int CreateUpdateState(State state)
+        {
+            ILocationRepository irepo = new LocationRepository();
+            return irepo.CreateUpdateState(state);
+        }
+
+
+        public List<State> GetStatesByCountryId(int countryId)
+        {
+            ILocationRepository irepo = new LocationRepository();
+            return irepo.GetStatesByCountryId(countryId);
+        }
+
         public List<District> GetDistricts()
         {
             ILocationRepository irepo = new LocationRepository();
             return irepo.GetDistricts();
+        }
+
+        public int CreateUpdateDistrict(District district)
+        {
+            ILocationRepository irepo = new LocationRepository();
+            return irepo.CreateUpdateDistrict(district);
         }
 
         public List<EPA> GetEPAs()

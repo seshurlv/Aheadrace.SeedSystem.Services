@@ -12,27 +12,25 @@ using System.Web.Http;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    
+
+    [JWTAuthentication]
     public class UserController : ApiController
     {
-        [HttpGet]
-        [ServiceAuthorizeAttribute]
+        [HttpGet]        
         public User GetUserDetailsById(int id)
         {
             Container.Register<IUserFacade, UserFacade>();
             return null;
         }
 
-        [HttpGet]
-        [ServiceAuthorizeAttribute]
+        [HttpGet]                
         public User GetUserDetailsByUserName(string userName)
         {
             IUserFacade userFacade = new UserFacade();
             return userFacade.GetUserDetailsByUserName(userName);
         }
 
-        [HttpGet]
-        [ServiceAuthorizeAttribute]
+        [HttpGet]        
         public List<User> GetUsersList()
         {
             IUserFacade userFacade = new UserFacade();
@@ -40,15 +38,13 @@ namespace Aheadrace.SeedSystem.Services.Controllers
         }
 
         [HttpGet]
-        [ServiceAuthorizeAttribute]
         public List<User> GetUsersByRole(int id)
         {
             IUserFacade userFacade = new UserFacade();
             return userFacade.GetUsersByRole(id);
         }
 
-        [HttpGet]
-        [ServiceAuthorizeAttribute]
+        [HttpGet]        
         public List<Role> GetRoles()
         {
             IUserFacade userFacade = new UserFacade();
@@ -63,12 +59,18 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             return userFacade.CreateUser(user);
         }
 
-        [HttpGet]
-        [ServiceAuthorizeAttribute]
+        [HttpGet]        
         public List<User> GetGrowersWithOpenRegistrations()
         {
             IUserFacade userFacade = new UserFacade();
             return userFacade.GetGrowersWithOpenRegistrations();
+        }
+
+        [HttpPost]        
+        public int UpdateUser(User user)
+        {
+            IUserFacade userFacade = new UserFacade();
+            return userFacade.UpdateUser(user);
         }
     }
 }

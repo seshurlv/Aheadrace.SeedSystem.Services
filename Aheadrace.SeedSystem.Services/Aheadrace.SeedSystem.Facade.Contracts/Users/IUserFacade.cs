@@ -22,5 +22,7 @@ namespace Aheadrace.SeedSystem.Facade.Contracts.Users
         int CreateUser(User user);
 
         List<User> GetGrowersWithOpenRegistrations();
+
+        int UpdateUser(User user);
     }
 }

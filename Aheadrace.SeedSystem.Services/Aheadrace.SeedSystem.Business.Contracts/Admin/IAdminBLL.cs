@@ -20,6 +20,6 @@ namespace Aheadrace.SeedSystem.Business.Contracts.Admin
 
         List<InspectorObservation> GetObservationsByUser(int mode, int userId);
 
-        
+        InspectorObservation GetObservationsByRegId(int regId);
     }
 }

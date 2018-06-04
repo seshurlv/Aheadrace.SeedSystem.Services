@@ -8,6 +8,6 @@ namespace Aheadrace.SeedSystem.Facade.Contracts.Login
 {
     public interface ILoginFacade
     {
-        string VerifyLoginCredentials(string username, string password);
+        bool VerifyLoginCredentials(string username, string password);
     }
 }

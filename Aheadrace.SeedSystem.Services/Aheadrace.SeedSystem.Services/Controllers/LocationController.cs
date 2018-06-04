@@ -11,8 +11,7 @@ using System.Web.Http;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    [AllowAnonymous]
-    [CacheFilter(TimeDuration = 600)]
+    [AllowAnonymous]    
     public class LocationController : ApiController
     {
         [HttpGet]
@@ -22,6 +21,13 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             return locationFacade.GetCountries();
         }
 
+        [HttpPost]
+        public int CreateUpdateCountry(Country country)
+        {
+            ILocationFacade locationFacade = new LocationFacade();
+            return locationFacade.CreateUpdateCountry(country);
+        }
+
         [HttpGet]
         public List<State> GetStates()
         {
@@ -29,11 +35,32 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             return locationFacade.GetStates();
         }
 
+        [HttpPost]
+        public int CreateUpdateState(State state)
+        {
+            ILocationFacade locationFacade = new LocationFacade();
+            return locationFacade.CreateUpdateState(state);
+        }
+
+        [HttpGet]
+        public List<State> GetStatesByCountryId(int countryId)
+        {
+            ILocationFacade locationFacade = new LocationFacade();
+            return locationFacade.GetStatesByCountryId(countryId);
+        }
+
         [HttpGet]
         public List<District> GetDistricts()
         {
             ILocationFacade locationFacade = new LocationFacade();
             return locationFacade.GetDistricts();
+        }
+
+        [HttpPost]
+        public int CreateUpdateDistrict(District district)
+        {
+            ILocationFacade locationFacade = new LocationFacade();
+            return locationFacade.CreateUpdateDistrict(district);
         }
 
         [HttpGet]

@@ -44,6 +44,12 @@ namespace Aheadrace.SeedSystem.Facade.Admin
             return adminBll.GetObservationsByUser(mode, userId);
         }
 
-        
+        public InspectorObservation GetObservationsByRegId(int regId)
+        {
+            IAdminBLL adminBll = new AdminBLL();
+            return adminBll.GetObservationsByRegId(regId);
+        }
+
+
     }
 }

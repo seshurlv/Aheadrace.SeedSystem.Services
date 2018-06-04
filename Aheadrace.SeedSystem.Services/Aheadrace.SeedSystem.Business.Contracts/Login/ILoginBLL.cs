@@ -9,6 +9,6 @@ namespace Aheadrace.SeedSystem.Business.Contract.Login
 {
     public interface ILoginBLL
     {
-        string ValidateLoginAndPrepareToken(string username, string password);
+        bool ValidateLoginAndPrepareToken(string username, string password);
     }
 }

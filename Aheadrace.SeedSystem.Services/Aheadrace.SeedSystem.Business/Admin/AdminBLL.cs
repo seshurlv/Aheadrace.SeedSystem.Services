@@ -147,6 +147,67 @@ namespace Aheadrace.SeedSystem.Business.Admin
                         regList.Add(ir);
                     }
                 }
+                else if (mode == 3)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        InspectionRegistration ir = new InspectionRegistration()
+                        {
+                            ID = Convert.ToInt32(ds.Tables[0].Rows[i]["RegID"]),
+                            GrowerName = Convert.ToString(ds.Tables[0].Rows[i]["GrowerName"]),
+                            InspectorName = Convert.ToString(ds.Tables[0].Rows[i]["InspectorName"]),
+                            Area = Convert.ToString(ds.Tables[0].Rows[i]["Area"]),
+                            //CroppingHistory = Convert.ToString(ds.Tables[0].Rows[i]["CroppingHistory"]),
+                            SeedSource = Convert.ToString(ds.Tables[0].Rows[i]["SeedSource"]),
+                            Status = Convert.ToString(ds.Tables[0].Rows[i]["status"]),
+                            ProductCategory = new ProductCategory()
+                            {
+                                ProductCategoryName = Convert.ToString(ds.Tables[0].Rows[i]["ProductCategoryName"])
+                            },
+                            Product = new Product()
+                            {
+                                ProductName = Convert.ToString(ds.Tables[0].Rows[i]["ProductName"])
+                            },
+                            ProductClass = new ProductClass()
+                            {
+                                ClassName = Convert.ToString(ds.Tables[0].Rows[i]["SeedClass"])
+                            },
+                            //User = new DataContracts.Users.User()
+                            //{
+                            //    MobileNumber = Convert.ToString(ds.Tables[0].Rows[i]["MobileNumber"]),
+                            //    Address = new DataContracts.Common.Address()
+                            //    {
+                            //        AddressLine1 = Convert.ToString(ds.Tables[0].Rows[i]["Address"]),
+                            //        Section = new DataContracts.Common.Section()
+                            //        {
+                            //            SectionName = Convert.ToString(ds.Tables[0].Rows[i]["SectionName"])
+                            //        },
+                            //        EPA = new DataContracts.Common.EPA()
+                            //        {
+                            //            EPAName = Convert.ToString(ds.Tables[0].Rows[i]["EPA"])
+                            //        },
+                            //        District = new DataContracts.Common.District()
+                            //        {
+                            //            DistrictName = Convert.ToString(ds.Tables[0].Rows[i]["DistrictName"])
+                            //        },
+                            //        State = new DataContracts.Common.State()
+                            //        {
+                            //            StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"])
+                            //        },
+                            //        Country = new DataContracts.Common.Country()
+                            //        {
+                            //            CountryName = Convert.ToString(ds.Tables[0].Rows[i]["CountryName"])
+                            //        }
+                            //    }
+                            //},
+                            CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                            CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                            UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                            UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
+                        };
+                        regList.Add(ir);
+                    }
+                }
                 else
                 {
                     //do nothing
@@ -173,6 +234,10 @@ namespace Aheadrace.SeedSystem.Business.Admin
             return adminRepo.GetObservationsByUser(mode, userId);
         }
 
-        
+        public InspectorObservation GetObservationsByRegId(int regId)
+        {
+            IAdminRepository adminRepo = new AdminRepository();
+            return adminRepo.GetObservationsByRegId(regId);
+        }
     }
 }

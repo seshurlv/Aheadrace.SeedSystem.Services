@@ -11,9 +11,17 @@ namespace Aheadrace.SeedSystem.Business.Contract.Common.Location
     {
         List<Country> GetCountries();
 
+        int CreateUpdateCountry(Country country);
+
         List<State> GetStates();
 
+        List<State> GetStatesByCountryId(int CountryId);
+
+        int CreateUpdateState(State state);
+
         List<District> GetDistricts();
+
+        int CreateUpdateDistrict(District district);
 
         List<EPA> GetEPAs();
 

@@ -18,6 +18,8 @@ namespace Aheadrace.SeedSystem.Facade.Contracts.Admin
 
         int SaveInspectorObservation(InspectorObservation inspectorObservation);
 
-        List<InspectorObservation> GetObservationsByUser(int mode, int userId);        
+        List<InspectorObservation> GetObservationsByUser(int mode, int userId);
+
+        InspectorObservation GetObservationsByRegId(int regId);
     }
 }

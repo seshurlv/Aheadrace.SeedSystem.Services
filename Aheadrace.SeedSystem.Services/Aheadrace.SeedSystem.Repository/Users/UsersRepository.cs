@@ -28,7 +28,7 @@ namespace Aheadrace.SeedSystem.Repository.Users
         public User GetUserDetailsByUserName(string userName)
         {
             User user = new User();
-            string[] tableNames = new string[1];
+            string[] tableNames = new string[2];
             Dictionary<string, object> cmdParams = new Dictionary<string, object>();
             cmdParams.Add("@UserName", userName);
             
@@ -40,6 +40,7 @@ namespace Aheadrace.SeedSystem.Repository.Users
                 user.MiddleName = ds.Tables[0].Rows[0]["MiddleName"].ToString();
                 user.LastName = ds.Tables[0].Rows[0]["LastName"].ToString();
                 user.UserName = Convert.ToString(ds.Tables[0].Rows[0]["UserName"]);
+                user.Password = Convert.ToString(ds.Tables[0].Rows[0]["Password"]);
                 user.Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]);
                 user.MobileNumber = Convert.ToString(ds.Tables[0].Rows[0]["MobileNumber"]);
                 user.Address = new DataContracts.Common.Address()
@@ -49,36 +50,70 @@ namespace Aheadrace.SeedSystem.Repository.Users
                     Region = new DataContracts.Common.Region()
                     {
                         RegionID = string.IsNullOrEmpty(ds.Tables[0].Rows[0]["RegionID"].ToString()) ? 0 : Convert.ToInt32(ds.Tables[0].Rows[0]["RegionID"]),
-                        RegionName = ds.Tables[0].Rows[0]["RegionName"].ToString()
+                        RegionName = Convert.ToString(ds.Tables[0].Rows[0]["RegionName"])
                     },
                     State = new DataContracts.Common.State()
                     {
-                        StateName = ds.Tables[0].Rows[0]["State"].ToString()
+                        StateID = Convert.ToInt32(ds.Tables[0].Rows[0]["StateID"]),
+                        StateName = Convert.ToString(ds.Tables[0].Rows[0]["State"])
                     },
                     Country = new DataContracts.Common.Country()
                     {
-                        CountryName = ds.Tables[0].Rows[0]["Country"].ToString()
+                        CountryID = Convert.ToInt32(ds.Tables[0].Rows[0]["CountryID"]),
+                        CountryName = Convert.ToString(ds.Tables[0].Rows[0]["Country"])
                     },
                     District = new DataContracts.Common.District()
                     {
+                        DistrictID = Convert.ToInt32(ds.Tables[0].Rows[0]["DistrictID"]),
                         DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["District"])
                     },
                     EPA = new DataContracts.Common.EPA()
                     {
+                        ID = Convert.ToInt32(ds.Tables[0].Rows[0]["EPAID"]),
                         EPAName = Convert.ToString(ds.Tables[0].Rows[0]["EPA"])
                     },
                     Section = new DataContracts.Common.Section()
                     {
+                        ID = Convert.ToInt32(ds.Tables[0].Rows[0]["SectionID"]),
                         SectionName = Convert.ToString(ds.Tables[0].Rows[0]["SectionName"])
                     }
 
                 };
+                //TODO - START - Need to fix this 
+                //user.FarmDetails = new FarmDetails()
+                //{
+                //    FarmAddress = Convert.ToString(ds.Tables[0].Rows[0]["FarmAddress"]),
+                //    FarmContact = Convert.ToString(ds.Tables[0].Rows[0]["FarmContact"])
+                //};
+                //TODO - END
                 user.Role = new Role()
                 {
                     RoleID = Convert.ToInt32(ds.Tables[0].Rows[0]["RoleID"]),
                     Name = ds.Tables[0].Rows[0]["RoleName"].ToString()
                 };
+                
+
             }
+            if (ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+            {
+                user.FarmDetails = new List<FarmDetails>();
+                for(int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                {
+                    FarmDetails fd = new FarmDetails()
+                    {
+                        Id = Convert.ToInt32(ds.Tables[1].Rows[i]["Id"]),
+                        FarmAddress = Convert.ToString(ds.Tables[1].Rows[i]["FarmAddress"]),
+                        FarmContact = Convert.ToString(ds.Tables[1].Rows[i]["FarmContact"]),
+                        FarmLattitude = Convert.ToString(ds.Tables[1].Rows[i]["FarmLattitude"]),
+                        FarmLongitude = Convert.ToString(ds.Tables[1].Rows[i]["FarmLongitude"]),
+                        FarmTitle = Convert.ToString(ds.Tables[1].Rows[i]["FarmTitle"]),
+                        FarmImageURL = Convert.ToString(ds.Tables[1].Rows[i]["FarmImageURL"])
+                    };
+                    user.FarmDetails.Add(fd);
+                }
+                
+            }
+
             return user;
         }
 
@@ -133,7 +168,7 @@ namespace Aheadrace.SeedSystem.Repository.Users
             int result = 0;
             string[] tableNames = new string[1];
             Dictionary<string, object> cmdParams = new Dictionary<string, object>();
-            cmdParams.Add("@UserID", 0);
+            cmdParams.Add("@UserID", user.UserID);
             cmdParams.Add("@FirstName", user.FirstName);
             cmdParams.Add("@MiddleName", user.MiddleName);
             cmdParams.Add("@LastName", user.LastName);
@@ -150,13 +185,36 @@ namespace Aheadrace.SeedSystem.Repository.Users
             cmdParams.Add("@CountryId", user.Address.Country.CountryID);
             cmdParams.Add("@RegionId", user.Address.Region.RegionID);
             cmdParams.Add("@RoleId", user.Role.RoleID);
-            cmdParams.Add("@FarmAddress", user.FarmDetails.FarmAddress);
-            cmdParams.Add("@FarmContact", user.FarmDetails.FarmContact);
-
+            
             DataSet ds = dbRepo.ExecuteProcedure("CreateUser", 0, tableNames, cmdParams);
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 result = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+                if(result == 1 && user.FarmDetails.Count > 0)
+                {
+                    for(int i = 0; i < user.FarmDetails.Count; i++)
+                    {
+                        int ir = 0;
+                        tableNames = new string[1];
+                        cmdParams = new Dictionary<string, object>();
+                        cmdParams.Add("@UserID", user.UserID);
+                        cmdParams.Add("@MobileNumber", user.MobileNumber);
+                        cmdParams.Add("@Id", user.FarmDetails[i].Id);
+                        cmdParams.Add("@FarmAddress", user.FarmDetails[i].FarmAddress);
+                        cmdParams.Add("@FarmContact", user.FarmDetails[i].FarmContact);
+                        cmdParams.Add("@FarmLattitude", user.FarmDetails[i].FarmLattitude);
+                        cmdParams.Add("@FarmLongitude", user.FarmDetails[i].FarmLongitude);
+                        cmdParams.Add("@FarmTitle", user.FarmDetails[i].FarmTitle);
+                        cmdParams.Add("@FarmImageURL", user.FarmDetails[i].FarmImageURL);
+
+
+                        ds = dbRepo.ExecuteProcedure("AlterUserFarmDetails", 0, tableNames, cmdParams);
+                        if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                        {
+                            ir = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+                        }
+                    }
+                }
             }
             return result;
         }
@@ -300,6 +358,37 @@ namespace Aheadrace.SeedSystem.Repository.Users
                 }
             }
             return usersList;
+        }
+
+        public int UpdateUser(User user)
+        {
+            int result = 0;
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@UserID", user.UserID);
+            cmdParams.Add("@FirstName", user.FirstName);
+            cmdParams.Add("@MiddleName", user.MiddleName);
+            cmdParams.Add("@LastName", user.LastName);
+            cmdParams.Add("@Email", user.Email);
+            cmdParams.Add("@MobileNumber", user.MobileNumber);
+            cmdParams.Add("@UserName", user.UserName);
+            cmdParams.Add("@Password", user.Password);
+            cmdParams.Add("@PinCode", user.Address.PostalCode);
+            cmdParams.Add("@Address", user.Address.AddressLine1);
+            cmdParams.Add("@SectionId", user.Address.Section.ID);
+            cmdParams.Add("@EPAId", user.Address.EPA.ID);
+            cmdParams.Add("@DistrictId", user.Address.District.DistrictID);
+            cmdParams.Add("@StateId", user.Address.State.StateID);
+            cmdParams.Add("@CountryId", user.Address.Country.CountryID);
+            cmdParams.Add("@RegionId", user.Address.Region.RegionID);
+            cmdParams.Add("@RoleId", user.Role.RoleID);
+                        
+            DataSet ds = dbRepo.ExecuteProcedure("CreateUser", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                result = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+            }
+            return result;
         }
     }
 }

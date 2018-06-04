@@ -87,3 +87,9 @@ D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrac
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\obj\Release\Aheadrace.SeedSystem.Services.csprojResolveAssemblyReference.cache
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\obj\Release\Aheadrace.SeedSystem.Services.dll
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\obj\Release\Aheadrace.SeedSystem.Services.pdb
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\Microsoft.IdentityModel.Logging.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\Microsoft.IdentityModel.Logging.xml
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\Microsoft.IdentityModel.Tokens.xml
+D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\bin\System.IdentityModel.Tokens.Jwt.xml

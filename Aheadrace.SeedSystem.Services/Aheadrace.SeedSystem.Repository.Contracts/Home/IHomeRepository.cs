@@ -13,7 +13,7 @@ namespace Aheadrace.SeedSystem.Repository.Contracts.Home
 
         List<CropsRegistered> GetRegistrationPerCrop(int year);
 
-        List<CropsRegistered> GetAreaPerCrop(int year);
+        List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role);
 
         List<RegistrationStats> GetUserRegistrationsPerMonth(int year);
 
@@ -21,6 +21,6 @@ namespace Aheadrace.SeedSystem.Repository.Contracts.Home
 
         List<RegistrationStats> GetInspectedGrowersPerMonth(int userId, int year);
 
-        List<RegistrationStats> GetInspectorStats(int userId, int year);
+        List<RegistrationStats> GetInspectorStats(int userId, int year, int role);
     }
 }

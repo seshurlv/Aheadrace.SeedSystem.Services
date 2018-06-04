@@ -18,16 +18,40 @@ namespace Aheadrace.SeedSystem.Facade.Common.Location
             return locationBll.GetCountries();
         }
 
+        public int CreateUpdateCountry(Country country)
+        {
+            ILocationBLL locationBll = new LocationBLL();
+            return locationBll.CreateUpdateCountry(country);
+        }
+
         public List<State> GetStates()
         {
             ILocationBLL locationBll = new LocationBLL();
             return locationBll.GetStates();
         }
 
+        public int CreateUpdateState(State state)
+        {
+            ILocationBLL locationBll = new LocationBLL();
+            return locationBll.CreateUpdateState(state);
+        }
+
         public List<District> GetDistricts()
         {
             ILocationBLL locationBll = new LocationBLL();
             return locationBll.GetDistricts();
+        }
+
+        public int CreateUpdateDistrict(District district)
+        {
+            ILocationBLL locationBll = new LocationBLL();
+            return locationBll.CreateUpdateDistrict(district);
+        }
+
+        public List<State> GetStatesByCountryId(int countryId)
+        {
+            ILocationBLL locationBll = new LocationBLL();
+            return locationBll.GetStatesByCountryId(countryId);
         }
 
         public List<EPA> GetEPAs()

@@ -13,20 +13,10 @@ namespace Aheadrace.SeedSystem.Business.Login
 {
     public class LoginBLL : ILoginBLL
     {
-        public string ValidateLoginAndPrepareToken(string username, string password)
+        public bool ValidateLoginAndPrepareToken(string username, string password)
         {
             ILoginRepository loginRepo = new LoginRepository();
-            if (loginRepo.VerifyLoginCredentials(username, password))
-            {
-                byte[] time = BitConverter.GetBytes(DateTime.UtcNow.AddHours(24).ToBinary());
-                byte[] usrname = Encoding.ASCII.GetBytes(username);
-                var token = Convert.ToBase64String(time.Concat(usrname).ToArray());                
-                return token;
-            }
-            else
-            {
-                return null;
-            }
+            return loginRepo.VerifyLoginCredentials(username, password);
         }
     }
 }

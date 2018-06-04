@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    [ServiceAuthorizeAttribute]
+    [JWTAuthentication]
     public class ProductController : ApiController
     {
         [HttpGet]

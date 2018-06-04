@@ -10,7 +10,7 @@ using System.Web.Http;
     
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    [ServiceAuthorizeAttribute]
+    [JWTAuthentication]
     public class HomeController : ApiController
     {
         [HttpGet]
@@ -28,10 +28,10 @@ namespace Aheadrace.SeedSystem.Services.Controllers
         }
 
         [HttpGet]
-        public List<CropsRegistered> GetAreaPerCrop(int year)
+        public List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role)
         {
             IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetAreaPerCrop(year);
+            return homeFacade.GetAreaPerCrop(year, userId, role);
         }
 
         [HttpGet]
@@ -56,10 +56,10 @@ namespace Aheadrace.SeedSystem.Services.Controllers
         }
 
         [HttpGet]
-        public List<RegistrationStats> GetInspectorStats(int userId, int year)
+        public List<RegistrationStats> GetInspectorStats(int userId, int year, int role)
         {
             IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetInspectorStats(userId, year);
+            return homeFacade.GetInspectorStats(userId, year, role);
         }
     }
 }

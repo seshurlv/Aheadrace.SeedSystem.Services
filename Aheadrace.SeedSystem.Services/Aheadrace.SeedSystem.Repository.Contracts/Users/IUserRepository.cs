@@ -22,5 +22,7 @@ namespace Aheadrace.SeedSystem.Repository.Contracts.Users
         List<Role> GetRoles();
 
         List<User> GetGrowersWithOpenRegistrations();
+
+        int UpdateUser(User user);
     }
 }

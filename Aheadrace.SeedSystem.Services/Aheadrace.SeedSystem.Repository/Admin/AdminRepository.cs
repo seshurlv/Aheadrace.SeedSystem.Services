@@ -167,6 +167,63 @@ namespace Aheadrace.SeedSystem.Repository.Admin
             return inspObsList;
         }
 
-        
+        public InspectorObservation GetObservationsByRegId(int regId)
+        {
+            InspectorObservation inspObs = new InspectorObservation();
+            string[] tableNames = new string[1];
+            Dictionary<string, object> cmdParams = new Dictionary<string, object>();
+            cmdParams.Add("@regId", regId);
+
+            DataSet ds = dbRepo.ExecuteProcedure("GetObservationsByRegId", 0, tableNames, cmdParams);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    inspObs = new InspectorObservation()
+                    {
+                        ID = Convert.ToInt32(ds.Tables[0].Rows[i]["ObservationID"]),
+                        RegID = Convert.ToInt32(ds.Tables[0].Rows[i]["RegID"]),
+                        OffTypePlants = Convert.ToString(ds.Tables[0].Rows[i]["OffTypePlants"]),
+                        PestDiseaseScore = Convert.ToString(ds.Tables[0].Rows[i]["PestDiseaseScore"]),
+                        PlantingPattern = Convert.ToString(ds.Tables[0].Rows[i]["PlantingPattern"]),
+                        PollinatingFemales = Convert.ToString(ds.Tables[0].Rows[i]["PollinatingFemales"]),
+                        FemaleReceptiveSilks = Convert.ToString(ds.Tables[0].Rows[i]["FemaleReceptiveSilks"]),
+                        MaleElimination = Convert.ToString(ds.Tables[0].Rows[i]["MaleElimination"]),
+                        OffTypeCobs = Convert.ToString(ds.Tables[0].Rows[i]["OffTypeCobs"]),
+                        DefectiveCobs = Convert.ToString(ds.Tables[0].Rows[i]["DefectiveCobs"]),
+                        RemarksByInspector = Convert.ToString(ds.Tables[0].Rows[i]["RemarksByInspector"]),
+                        RecommendationForGrower = Convert.ToString(ds.Tables[0].Rows[i]["RecommendationForGrower"]),
+                        Status = Convert.ToString(ds.Tables[0].Rows[i]["Status"]),
+                        DateOfSowing = Convert.ToDateTime(ds.Tables[0].Rows[i]["DateOfSowing"]),
+                        CropStage = Convert.ToString(ds.Tables[0].Rows[i]["CropStage"]),
+                        IsIsolationDistanceMaintained = Convert.ToBoolean(ds.Tables[0].Rows[i]["IsIsolationDistanceMaintained"]),
+                        GrowthCondition = Convert.ToString(ds.Tables[0].Rows[i]["GrowthCondition"]),
+                        RecommendationForCertification = Convert.ToBoolean(ds.Tables[0].Rows[i]["RecommendationForCertification"]),
+                        InspectionRegistration = new InspectionRegistration()
+                        {
+                            GrowerName = Convert.ToString(ds.Tables[0].Rows[i]["GrowerName"]),
+                            InspectorName = Convert.ToString(ds.Tables[0].Rows[i]["InspectorName"]),
+                            ProductCategory = new ProductCategory()
+                            {
+                                ProductCategoryName = Convert.ToString(ds.Tables[0].Rows[i]["ProductCategoryName"])
+                            },
+                            Product = new Product()
+                            {
+                                ProductName = Convert.ToString(ds.Tables[0].Rows[i]["ProductName"])
+                            },
+                            ProductClass = new ProductClass()
+                            {
+                                ClassName = Convert.ToString(ds.Tables[0].Rows[i]["ClassName"])
+                            }
+                        },
+                        CreatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["CreatedAt"]),
+                        CreatedBy = Convert.ToString(ds.Tables[0].Rows[i]["CreatedBy"]),
+                        UpdatedAt = Convert.ToDateTime(ds.Tables[0].Rows[i]["UpdatedAt"]),
+                        UpdatedBy = Convert.ToString(ds.Tables[0].Rows[i]["UpdatedBy"])
+                    };                    
+                }
+            }
+            return inspObs;
+        }
     }
 }

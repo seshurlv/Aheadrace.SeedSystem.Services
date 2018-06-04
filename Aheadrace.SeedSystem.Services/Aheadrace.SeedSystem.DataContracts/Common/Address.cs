@@ -35,7 +35,7 @@ namespace Aheadrace.SeedSystem.DataContracts.Common
         public int CountryID { get; set; }
         public string CountryCode { get; set; }
         public string CountryName { get; set; }
-        public int CountryPhoneCode { get; set; }
+        public string CountryPhoneCode { get; set; }
     }
 
     public class State : Common
@@ -43,12 +43,14 @@ namespace Aheadrace.SeedSystem.DataContracts.Common
         public int StateID { get; set; }
         public string StateName { get; set; }
         public Country Country { get; set; }
+        public Region Region { get; set; }
     }
 
     public class District : Common
     {
         public int DistrictID { get; set; }
         public string DistrictName { get; set; }
+        public string DistrictDescription { get; set; }
         public State State { get; set; }
     }
 

@@ -13,7 +13,7 @@ using Aheadrace.SeedSystem.DataContracts.Common;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
-    [ServiceAuthorizeAttribute]
+    [JWTAuthentication]
     public class AdminController : ApiController
     {
         [HttpPost]
@@ -30,8 +30,7 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             return adminFacade.GetRegistrationsByUser(mode, userId);
         }
 
-        [HttpPost]
-        [CacheFilter]
+        [HttpPost]        
         public int AssignInspector(InspectionRegistration inspectionReg)
         {
             IAdminFacade adminFacade = new AdminFacade();
@@ -52,6 +51,14 @@ namespace Aheadrace.SeedSystem.Services.Controllers
             return adminFacade.GetObservationsByUser(mode, userId);
         }
 
-        
+        [HttpGet]
+        public InspectorObservation GetObservationsByRegId(int regId)
+        {
+            IAdminFacade adminFacade = new AdminFacade();
+            return adminFacade.GetObservationsByRegId(regId);
+        }
+
+
+
     }
 }

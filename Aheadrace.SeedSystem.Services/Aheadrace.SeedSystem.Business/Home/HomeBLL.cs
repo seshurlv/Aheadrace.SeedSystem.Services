@@ -24,10 +24,10 @@ namespace Aheadrace.SeedSystem.Business.Home
             return homeRepo.GetRegistrationPerCrop(year);
         }
 
-        public List<CropsRegistered> GetAreaPerCrop(int year)
+        public List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role)
         {
             IHomeRepository homeRepo = new HomeRepository();
-            return homeRepo.GetAreaPerCrop(year);
+            return homeRepo.GetAreaPerCrop(year, userId, role);
         }
 
         public List<RegistrationStats> GetUserRegistrationsPerMonth(int year)
@@ -48,10 +48,10 @@ namespace Aheadrace.SeedSystem.Business.Home
             return homeRepo.GetInspectedGrowersPerMonth(userId, year);
         }
 
-        public List<RegistrationStats> GetInspectorStats(int userId, int year)
+        public List<RegistrationStats> GetInspectorStats(int userId, int year, int role)
         {
             IHomeRepository homeRepo = new HomeRepository();
-            return homeRepo.GetInspectorStats(userId, year);
+            return homeRepo.GetInspectorStats(userId, year, role);
         }
     }
 }
