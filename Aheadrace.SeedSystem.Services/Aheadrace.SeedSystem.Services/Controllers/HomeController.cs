@@ -13,53 +13,53 @@ namespace Aheadrace.SeedSystem.Services.Controllers
     [JWTAuthentication]
     public class HomeController : ApiController
     {
+        private IHomeFacade _homeFacade;
+
+        public HomeController(IHomeFacade homeFacade)
+        {
+            _homeFacade = homeFacade;
+        }
+
         [HttpGet]
         public List<RegistrationStats> GetRegistrationStats(int year)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetRegistrationStats(year);
+            return _homeFacade.GetRegistrationStats(year);
         }
 
         [HttpGet]
         public List<CropsRegistered> GetRegistrationPerCrop(int year)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetRegistrationPerCrop(year);
+            return _homeFacade.GetRegistrationPerCrop(year);
         }
 
         [HttpGet]
         public List<CropsRegistered> GetAreaPerCrop(int year, int userId, int role)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetAreaPerCrop(year, userId, role);
+            return _homeFacade.GetAreaPerCrop(year, userId, role);
         }
 
         [HttpGet]
         public List<RegistrationStats> GetUserRegistrationsPerMonth(int year)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetUserRegistrationsPerMonth(year);
+            return _homeFacade.GetUserRegistrationsPerMonth(year);
         }
 
         [HttpGet]
         public List<RegistrationStats> GetUserPerDistrict(int year)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetUserPerDistrict(year);
+            return _homeFacade.GetUserPerDistrict(year);
         }
 
         [HttpGet]
         public List<RegistrationStats> GetInspectedGrowersPerMonth(int userId, int year)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetInspectedGrowersPerMonth(userId, year);
+            return _homeFacade.GetInspectedGrowersPerMonth(userId, year);
         }
 
         [HttpGet]
         public List<RegistrationStats> GetInspectorStats(int userId, int year, int role)
         {
-            IHomeFacade homeFacade = new HomeFacade();
-            return homeFacade.GetInspectorStats(userId, year, role);
+            return _homeFacade.GetInspectorStats(userId, year, role);
         }
     }
 }

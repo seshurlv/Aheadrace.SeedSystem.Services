@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Aheadrace.SeedSystem.Repository.Login
 {
-    public class LoginRepository : DataRepository, ILoginRepository
+    public class LoginRepository : ILoginRepository
     {
         DataRepository dbRepo;
         public LoginRepository()

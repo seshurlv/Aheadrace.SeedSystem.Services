@@ -98,7 +98,7 @@ namespace Aheadrace.SeedSystem.Services.Filters
             }
             catch(Exception ex)
             {
-                //throw ex;
+                Console.Write(ex.Message);
             }
             return false;
         }

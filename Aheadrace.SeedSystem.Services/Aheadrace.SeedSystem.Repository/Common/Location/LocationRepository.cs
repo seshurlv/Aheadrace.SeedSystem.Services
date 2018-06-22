@@ -33,7 +33,8 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                         CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
                         CountryCode = Convert.ToString(ds.Tables[0].Rows[i]["CountryCode"]),
                         CountryName = Convert.ToString(ds.Tables[0].Rows[i]["Name"]),
-                        CountryPhoneCode = Convert.ToString(ds.Tables[0].Rows[i]["PhoneCode"])
+                        CountryPhoneCode = Convert.ToString(ds.Tables[0].Rows[i]["PhoneCode"]),
+                        CountryDescription = Convert.ToString(ds.Tables[0].Rows[i]["Description"])
                     };
                     countriesList.Add(country);
                 }
@@ -50,6 +51,7 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
             cmdParams.Add("@CountryCode", country.CountryCode);
             cmdParams.Add("@CountryName", country.CountryName);
             cmdParams.Add("@CountryPhoneCode", country.CountryPhoneCode);
+            cmdParams.Add("@Description", country.CountryDescription);
             DataSet ds = dbRepo.ExecuteProcedure("CreateUpdateCountry", 0, tableNames, cmdParams);
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -72,6 +74,7 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                     {
                         StateID = Convert.ToInt32(ds.Tables[0].Rows[i]["StateID"]),
                         StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"]),
+                        StateDescription = Convert.ToString(ds.Tables[0].Rows[i]["Description"]),
                         Country = new Country()
                         {
                             CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
@@ -105,6 +108,7 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                     {
                         StateID = Convert.ToInt32(ds.Tables[0].Rows[i]["StateID"]),
                         StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"]),
+                        StateDescription = Convert.ToString(ds.Tables[0].Rows[i]["Description"]),
                         Country = new Country()
                         {
                             CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
@@ -129,6 +133,7 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
             Dictionary<string, object> cmdParams = new Dictionary<string, object>();
             cmdParams.Add("@StateID", state.StateID);
             cmdParams.Add("@StateName", state.StateName);
+            cmdParams.Add("@Description", state.StateDescription);
             cmdParams.Add("@CountryID", state.Country.CountryID);
             cmdParams.Add("@RegionID", state.Region.RegionID);
             DataSet ds = dbRepo.ExecuteProcedure("CreateUpdateState", 0, tableNames, cmdParams);
@@ -153,11 +158,14 @@ namespace Aheadrace.SeedSystem.Repository.Common.Location
                     {
                         DistrictID = Convert.ToInt32(ds.Tables[0].Rows[i]["ID"]),
                         DistrictName = Convert.ToString(ds.Tables[0].Rows[i]["DistrictName"]),
+                        DistrictDescription = Convert.ToString(ds.Tables[0].Rows[i]["Description"]),
                         State = new State()
                         {
+                            StateID = Convert.ToInt32(ds.Tables[0].Rows[i]["StateID"]),
                             StateName = Convert.ToString(ds.Tables[0].Rows[i]["StateName"]),
                             Country = new Country()
                             {
+                                CountryID = Convert.ToInt32(ds.Tables[0].Rows[i]["CountryID"]),
                                 CountryName = Convert.ToString(ds.Tables[0].Rows[i]["CountryName"])
                             }
                         }                        

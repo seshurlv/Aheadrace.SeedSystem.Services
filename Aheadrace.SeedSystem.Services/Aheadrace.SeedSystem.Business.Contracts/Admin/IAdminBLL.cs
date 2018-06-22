@@ -1,10 +1,5 @@
-﻿using Aheadrace.SeedSystem.DataContracts.Common;
-using Aheadrace.SeedSystem.DataContracts.Products;
-using System;
+﻿using Aheadrace.SeedSystem.DataContracts.Products;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aheadrace.SeedSystem.Business.Contracts.Admin
 {

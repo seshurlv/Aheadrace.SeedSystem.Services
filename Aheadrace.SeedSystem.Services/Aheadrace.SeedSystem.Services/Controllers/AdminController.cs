@@ -10,55 +10,54 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Caching;
 using Aheadrace.SeedSystem.DataContracts.Common;
+using Aheadrace.SeedSystem.Services.Container;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
     [JWTAuthentication]
     public class AdminController : ApiController
     {
+        private IAdminFacade _adminFacade;
+
+        public AdminController(IAdminFacade adminFacade)
+        {
+            _adminFacade = adminFacade;
+        }
+
         [HttpPost]
         public int RegisterInspection(InspectionRegistration inspectionReg)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.RegisterInspection(inspectionReg);
+            return _adminFacade.RegisterInspection(inspectionReg);
         }
 
         [HttpGet]
         public List<InspectionRegistration> GetRegistrationsByUser(int mode, int userId)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.GetRegistrationsByUser(mode, userId);
+            return _adminFacade.GetRegistrationsByUser(mode, userId);
         }
 
         [HttpPost]        
         public int AssignInspector(InspectionRegistration inspectionReg)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.AssignInspector(inspectionReg);
+            return _adminFacade.AssignInspector(inspectionReg);
         }
 
         [HttpPost]
         public int SaveInspectorObservation(InspectorObservation inspectorObservation)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.SaveInspectorObservation(inspectorObservation);
+            return _adminFacade.SaveInspectorObservation(inspectorObservation);
         }
 
         [HttpGet]
         public List<InspectorObservation> GetObservationsByUser(int mode, int userId)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.GetObservationsByUser(mode, userId);
+            return _adminFacade.GetObservationsByUser(mode, userId);
         }
 
         [HttpGet]
         public InspectorObservation GetObservationsByRegId(int regId)
         {
-            IAdminFacade adminFacade = new AdminFacade();
-            return adminFacade.GetObservationsByRegId(regId);
+            return _adminFacade.GetObservationsByRegId(regId);
         }
-
-
-
     }
 }

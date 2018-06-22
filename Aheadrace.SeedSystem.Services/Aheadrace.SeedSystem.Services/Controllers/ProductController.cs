@@ -15,32 +15,35 @@ namespace Aheadrace.SeedSystem.Services.Controllers
     [JWTAuthentication]
     public class ProductController : ApiController
     {
+        private IProductsFacade _productFacade;
+
+        public ProductController(IProductsFacade productFacade)
+        {
+            _productFacade = productFacade;
+        }
+
         [HttpGet]
         public List<ProductCategory> GetProductCategoryById(int id)
         {
-            IProductsFacade prod = new ProductsFacade();
-            return prod.GetProductCategoryById(id);            
+            return _productFacade.GetProductCategoryById(id);            
         }
 
         [HttpGet]
         public List<Product> GetProductsById(int id)
         {
-            IProductsFacade prod = new ProductsFacade();
-            return prod.GetProductsById(id);            
+            return _productFacade.GetProductsById(id);            
         }
 
         [HttpGet]
         public List<Product> GetProductsByProductCategoryId(int id)
         {
-            IProductsFacade prod = new ProductsFacade();
-            return prod.GetProductsByProductCategoryId(id);
+            return _productFacade.GetProductsByProductCategoryId(id);
         }
 
         [HttpGet]
         public List<ProductClass> GetProductClassList(int id)
         {
-            IProductsFacade prod = new ProductsFacade();
-            return prod.GetProductClassList(id);
+            return _productFacade.GetProductClassList(id);
         }
     }
 }

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aheadrace.SeedSystem.Reposi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aheadrace.SeedSystem.Repository", "Aheadrace.SeedSystem.Repository\Aheadrace.SeedSystem.Repository.csproj", "{EA6908C6-B428-4CCB-AB94-1836C3F2E685}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aheadrace.SeedSystem.Tests", "Aheadrace.SeedSystem.Tests\Aheadrace.SeedSystem.Tests.csproj", "{66E3A477-F14F-4F17-89C4-6E2863C14872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,8 +65,15 @@ Global
 		{EA6908C6-B428-4CCB-AB94-1836C3F2E685}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA6908C6-B428-4CCB-AB94-1836C3F2E685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA6908C6-B428-4CCB-AB94-1836C3F2E685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E3A477-F14F-4F17-89C4-6E2863C14872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E3A477-F14F-4F17-89C4-6E2863C14872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E3A477-F14F-4F17-89C4-6E2863C14872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E3A477-F14F-4F17-89C4-6E2863C14872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

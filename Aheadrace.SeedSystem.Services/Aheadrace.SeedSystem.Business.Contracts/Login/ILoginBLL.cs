@@ -1,11 +1,4 @@
-﻿using Aheadrace.SeedSystem.DataContracts.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aheadrace.SeedSystem.Business.Contract.Login
+﻿namespace Aheadrace.SeedSystem.Business.Contracts.Login
 {
     public interface ILoginBLL
     {

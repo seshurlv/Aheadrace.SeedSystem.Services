@@ -1,29 +1,29 @@
 ﻿using Aheadrace.SeedSystem.Business.Contracts.Admin;
-using Aheadrace.SeedSystem.DataContracts.Common;
 using Aheadrace.SeedSystem.DataContracts.Products;
-using Aheadrace.SeedSystem.Repository.Admin;
 using Aheadrace.SeedSystem.Repository.Contracts.Admin;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aheadrace.SeedSystem.Business.Admin
 {
     public class AdminBLL : IAdminBLL
     {
+        private IAdminRepository _adminRepo;
+
+        public AdminBLL(IAdminRepository adminRepo)
+        {
+            _adminRepo = adminRepo;
+        }
+
         public int RegisterInspection(InspectionRegistration inspectionReg)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            return adminRepo.RegisterInspection(inspectionReg);
+            return _adminRepo.RegisterInspection(inspectionReg);
         }
 
         public List<InspectionRegistration> GetRegistrationsByUser(int mode, int userId)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            DataSet ds = adminRepo.GetRegistrationsByUser(mode, userId);
+            DataSet ds = _adminRepo.GetRegistrationsByUser(mode, userId);
             List<InspectionRegistration> regList = new List<InspectionRegistration>();
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -218,26 +218,22 @@ namespace Aheadrace.SeedSystem.Business.Admin
 
         public int AssignInspector(InspectionRegistration inspectionReg)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            return adminRepo.AssignInspector(inspectionReg);
+            return _adminRepo.AssignInspector(inspectionReg);
         }
 
         public int SaveInspectorObservation(InspectorObservation inspectorObservation)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            return adminRepo.SaveInspectorObservation(inspectorObservation);
+            return _adminRepo.SaveInspectorObservation(inspectorObservation);
         }
 
         public List<InspectorObservation> GetObservationsByUser(int mode, int userId)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            return adminRepo.GetObservationsByUser(mode, userId);
+            return _adminRepo.GetObservationsByUser(mode, userId);
         }
 
         public InspectorObservation GetObservationsByRegId(int regId)
         {
-            IAdminRepository adminRepo = new AdminRepository();
-            return adminRepo.GetObservationsByRegId(regId);
+            return _adminRepo.GetObservationsByRegId(regId);
         }
     }
 }

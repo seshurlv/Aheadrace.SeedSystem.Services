@@ -14,88 +14,83 @@ namespace Aheadrace.SeedSystem.Services.Controllers
     [AllowAnonymous]    
     public class LocationController : ApiController
     {
+        private ILocationFacade _locationFacade;
+
+        public LocationController(ILocationFacade locationFacade)
+        {
+            _locationFacade = locationFacade;
+        }
+
         [HttpGet]
         public List<Country> GetCountries()
-        {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetCountries();
+        {            
+            return _locationFacade.GetCountries();
         }
 
         [HttpPost]
         public int CreateUpdateCountry(Country country)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.CreateUpdateCountry(country);
+            return _locationFacade.CreateUpdateCountry(country);
         }
 
         [HttpGet]
         public List<State> GetStates()
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetStates();
+            return _locationFacade.GetStates();
         }
 
         [HttpPost]
         public int CreateUpdateState(State state)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.CreateUpdateState(state);
+            return _locationFacade.CreateUpdateState(state);
         }
 
         [HttpGet]
         public List<State> GetStatesByCountryId(int countryId)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetStatesByCountryId(countryId);
+            return _locationFacade.GetStatesByCountryId(countryId);
         }
 
         [HttpGet]
         public List<District> GetDistricts()
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetDistricts();
+            return _locationFacade.GetDistricts();
         }
 
         [HttpPost]
         public int CreateUpdateDistrict(District district)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.CreateUpdateDistrict(district);
+            return _locationFacade.CreateUpdateDistrict(district);
         }
 
         [HttpGet]
         public List<EPA> GetEPAs()
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetEPAs();
+            return _locationFacade.GetEPAs();
         }
 
         [HttpGet]
         public List<Section> GetSections()
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetSections();
+            return _locationFacade.GetSections();
         }
 
         [HttpGet]
         public List<EPA> GetEPAByDistrictId(int id)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetEPAByDistrictId(id);
+            return _locationFacade.GetEPAByDistrictId(id);
         }
 
         [HttpGet]
         public List<Section> GetSectionByEPAId(int id)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetSectionByEPAId(id);
+            return _locationFacade.GetSectionByEPAId(id);
         }
 
         [HttpGet]
         public List<Region> GetRegions(int id)
         {
-            ILocationFacade locationFacade = new LocationFacade();
-            return locationFacade.GetRegions(id);
+            return _locationFacade.GetRegions(id);
         }
     }
 }

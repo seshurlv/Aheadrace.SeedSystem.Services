@@ -16,61 +16,61 @@ namespace Aheadrace.SeedSystem.Services.Controllers
     [JWTAuthentication]
     public class UserController : ApiController
     {
+        private IUserFacade _userFacade;
+
+        public UserController(IUserFacade userFacade)
+        {
+            _userFacade = userFacade;
+        }
+
         [HttpGet]        
         public User GetUserDetailsById(int id)
         {
-            Container.Register<IUserFacade, UserFacade>();
+            //yet to implement
             return null;
         }
 
         [HttpGet]                
         public User GetUserDetailsByUserName(string userName)
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.GetUserDetailsByUserName(userName);
+            return _userFacade.GetUserDetailsByUserName(userName);
         }
 
         [HttpGet]        
         public List<User> GetUsersList()
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.GetUsersList();
+            return _userFacade.GetUsersList();
         }
 
         [HttpGet]
         public List<User> GetUsersByRole(int id)
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.GetUsersByRole(id);
+            return _userFacade.GetUsersByRole(id);
         }
 
         [HttpGet]        
         public List<Role> GetRoles()
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.GetRoles();
+            return _userFacade.GetRoles();
         }
 
         [HttpPost]
         [AllowAnonymous]
         public int CreateUser(User user)
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.CreateUser(user);
+            return _userFacade.CreateUser(user);
         }
 
         [HttpGet]        
         public List<User> GetGrowersWithOpenRegistrations()
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.GetGrowersWithOpenRegistrations();
+            return _userFacade.GetGrowersWithOpenRegistrations();
         }
 
         [HttpPost]        
         public int UpdateUser(User user)
         {
-            IUserFacade userFacade = new UserFacade();
-            return userFacade.UpdateUser(user);
+            return _userFacade.UpdateUser(user);
         }
     }
 }

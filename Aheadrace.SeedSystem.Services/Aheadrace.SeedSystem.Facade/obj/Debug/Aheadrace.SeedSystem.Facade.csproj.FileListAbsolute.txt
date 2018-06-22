@@ -8,12 +8,8 @@ D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrac
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.DataContracts.dll
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Facade.Contracts.dll
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Repository.Contracts.dll
-D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Repository.dll
-D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Framework.dll
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Business.Contracts.pdb
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Business.pdb
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.DataContracts.pdb
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Facade.Contracts.pdb
 D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Repository.Contracts.pdb
-D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Repository.pdb
-D:\Projects\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Services\Aheadrace.SeedSystem.Facade\bin\Debug\Aheadrace.SeedSystem.Framework.pdb

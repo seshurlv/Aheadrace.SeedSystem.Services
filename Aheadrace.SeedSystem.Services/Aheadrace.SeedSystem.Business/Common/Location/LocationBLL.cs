@@ -1,88 +1,78 @@
-﻿using Aheadrace.SeedSystem.Business.Contract.Common.Location;
+﻿using Aheadrace.SeedSystem.Business.Contracts.Common.Location;
 using Aheadrace.SeedSystem.DataContracts.Common;
-using Aheadrace.SeedSystem.Repository.Common.Location;
 using Aheadrace.SeedSystem.Repository.Contracts.Common.Location;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aheadrace.SeedSystem.Business.Common.Location
 {
     public class LocationBLL : ILocationBLL
     {
+        private ILocationRepository _locationRepo;
+
+        public LocationBLL(ILocationRepository locationRepo)
+        {
+            _locationRepo = locationRepo;
+        }
+
         public List<Country> GetCountries()
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetCountries();
+            return _locationRepo.GetCountries();
         }
 
         public int CreateUpdateCountry(Country country)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.CreateUpdateCountry(country);
+            return _locationRepo.CreateUpdateCountry(country);
         }
 
         public List<State> GetStates()
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetStates();
+            return _locationRepo.GetStates();
         }
 
         public int CreateUpdateState(State state)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.CreateUpdateState(state);
+            return _locationRepo.CreateUpdateState(state);
         }
 
 
         public List<State> GetStatesByCountryId(int countryId)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetStatesByCountryId(countryId);
+            return _locationRepo.GetStatesByCountryId(countryId);
         }
 
         public List<District> GetDistricts()
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetDistricts();
+            return _locationRepo.GetDistricts();
         }
 
         public int CreateUpdateDistrict(District district)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.CreateUpdateDistrict(district);
+            return _locationRepo.CreateUpdateDistrict(district);
         }
 
         public List<EPA> GetEPAs()
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetEPAs();
+            return _locationRepo.GetEPAs();
         }
 
         public List<Section> GetSections()
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetSections();
+            return _locationRepo.GetSections();
         }
 
         public List<EPA> GetEPAByDistrictId(int id)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetEPAByDistrictId(id);
+            return _locationRepo.GetEPAByDistrictId(id);
         }
 
         public List<Section> GetSectionByEPAId(int id)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetSectionByEPAId(id);
+            return _locationRepo.GetSectionByEPAId(id);
         }
 
         public List<Region> GetRegions(int id)
         {
-            ILocationRepository irepo = new LocationRepository();
-            return irepo.GetRegions(id);
+            return _locationRepo.GetRegions(id);
         }
     }
 }

@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Aheadrace.SeedSystem.Business.Contracts.Users;
 using Aheadrace.SeedSystem.DataContracts.Users;
 using Aheadrace.SeedSystem.Facade.Contracts.Users;
-using Aheadrace.SeedSystem.Business.Contract.Users;
-using Aheadrace.SeedSystem.Business.Users;
+using System.Collections.Generic;
 
 namespace Aheadrace.SeedSystem.Facade.Users
 {
     public class UserFacade : IUserFacade
     {
+        private IUserBLL _userBll;
+
+        public UserFacade(IUserBLL userBll)
+        {
+            _userBll = userBll;
+        }
+
         public User GetUserDetailsById(int id)
         {
             return null;
@@ -19,44 +21,37 @@ namespace Aheadrace.SeedSystem.Facade.Users
 
         public User GetUserDetailsByUserName(string userName)
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.GetUserDetailsByUserName(userName);
+            return _userBll.GetUserDetailsByUserName(userName);
         }
 
         public List<User> GetUsersList()
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.GetUsersList();
+            return _userBll.GetUsersList();
         }
 
         public List<User> GetUsersByRole(int id)
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.GetUsersByRole(id);
+            return _userBll.GetUsersByRole(id);
         }
 
         public List<Role> GetRoles()
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.GetRoles();
+            return _userBll.GetRoles();
         }
 
         public int CreateUser(User user)
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.CreateUser(user);
+            return _userBll.CreateUser(user);
         }
 
         public List<User> GetGrowersWithOpenRegistrations()
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.GetGrowersWithOpenRegistrations();
+            return _userBll.GetGrowersWithOpenRegistrations();
         }
 
         public int UpdateUser(User user)
         {
-            IUserBLL userBLL = new UserBLL();
-            return userBLL.UpdateUser(user);
+            return _userBll.UpdateUser(user);
         }
     }
 }
