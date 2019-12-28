@@ -19,8 +19,7 @@ namespace Aheadrace.SeedSystem.Framework.Data
         public DataRepository()
         {
             connectionString = ConfigurationManager.ConnectionStrings["TraceSmartServicesConnection"].ToString();
-            //connectionString = "Data Source=SESHU; Initial Catalog=POG; user id = sa; password= sa;";
-                _connection = new SqlConnection(connectionString);
+            _connection = new SqlConnection(connectionString);
         }
 
         /// <summary>

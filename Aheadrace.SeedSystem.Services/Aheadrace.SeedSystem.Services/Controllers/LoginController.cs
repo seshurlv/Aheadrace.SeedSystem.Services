@@ -1,13 +1,5 @@
 ﻿using Aheadrace.SeedSystem.Facade.Contracts.Login;
-using Aheadrace.SeedSystem.Facade.Login;
 using Aheadrace.SeedSystem.Services.Filters;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
 using System.Web.Http;
 
 namespace Aheadrace.SeedSystem.Services.Controllers

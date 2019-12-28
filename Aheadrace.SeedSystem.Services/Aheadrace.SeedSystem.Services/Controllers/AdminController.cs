@@ -1,16 +1,8 @@
 ﻿using Aheadrace.SeedSystem.DataContracts.Products;
-using Aheadrace.SeedSystem.Facade.Admin;
 using Aheadrace.SeedSystem.Facade.Contracts.Admin;
 using Aheadrace.SeedSystem.Services.Filters;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.Caching;
-using Aheadrace.SeedSystem.DataContracts.Common;
-using Aheadrace.SeedSystem.Services.Container;
 
 namespace Aheadrace.SeedSystem.Services.Controllers
 {

@@ -1,13 +1,7 @@
 ﻿using Aheadrace.SeedSystem.DataContracts.Users;
 using Aheadrace.SeedSystem.Facade.Contracts.Users;
-using Aheadrace.SeedSystem.Facade.Users;
-using Aheadrace.SeedSystem.Framework.Core;
 using Aheadrace.SeedSystem.Services.Filters;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Aheadrace.SeedSystem.Services.Controllers

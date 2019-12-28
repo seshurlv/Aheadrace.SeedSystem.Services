@@ -1,13 +1,9 @@
 ﻿using Aheadrace.SeedSystem.DataContracts.Home;
 using Aheadrace.SeedSystem.Facade.Contracts.Home;
-using Aheadrace.SeedSystem.Facade.Home;
 using Aheadrace.SeedSystem.Services.Filters;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
-    
+
 namespace Aheadrace.SeedSystem.Services.Controllers
 {
     [JWTAuthentication]
